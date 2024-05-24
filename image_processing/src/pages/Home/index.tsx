@@ -1,19 +1,22 @@
-import './Home.css'
+import './index.css'
 
-import Stack from '@mui/material/Stack'
+import { 
+    Stack,
+    Typography 
+} from '@mui/material'
 
-import HomeButton from '../../components/HomeButton/HomeButton'
+import HomeButton from '../../components/HomeButton'
 
 const Home = () => {
     return (
         <>
             <div className="title_div">
-                <p className="title_p">
+                <Typography variant="h2" className="title_p">
                     Image Processing
-                    <p className="welcome_message_p">
+                    <Typography className="welcome_message_p">
                         A simple website to process your images!
-                    </p>
-                </p>
+                    </Typography>
+                </Typography>
             </div>
             <div className="buttons_div">
                 <Stack spacing={4} direction="column">
