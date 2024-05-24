@@ -9,16 +9,16 @@ import {
 import HomeIcon from '@mui/icons-material/Home';
 
 const StyledAppBar = styled(AppBar)({
-    backgroundColor: "#01579b",
-    height: "4rem",
+    backgroundColor: "#212121",
+    height: "3rem",
 })
 
 const NavBar = () => {
     return (
         <StyledAppBar position='static'>
-            <Toolbar disableGutters>
+            <Toolbar variant='dense'disableGutters>
                 <IconButton>
-                    <HomeIcon fontSize='large' sx={{
+                    <HomeIcon fontSize='medium' sx={{
                         color: 'white'
                     }}/>
                 </IconButton>

@@ -11,9 +11,9 @@ const Home = () => {
     return (
         <>
             <div className="title_div">
-                <Typography variant="h2" className="title_p">
+                <Typography variant="h2" textAlign={"center"}>
                     Image Processing
-                    <Typography className="welcome_message_p">
+                    <Typography textAlign={"center"} marginTop={2}>
                         A simple website to process your images!
                     </Typography>
                 </Typography>
