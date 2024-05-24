@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 
 interface HomeButtonProps {
     text: string,
+    onClick?: () => void
 }
 
 const StyledButton = styled(Button)({
@@ -18,7 +19,7 @@ const StyledButton = styled(Button)({
 
 const HomeButton = (props: HomeButtonProps) => {
     return (
-        <StyledButton>
+        <StyledButton onClick={props.onClick}>
             {props.text}
         </StyledButton>
     )

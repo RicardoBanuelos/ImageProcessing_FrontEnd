@@ -7,7 +7,11 @@ import {
 
 import HomeButton from '../../components/HomeButton'
 
+import { useNavigate } from 'react-router-dom'
+
 const Home = () => {
+    const navigator = useNavigate()
+
     return (
         <>
             <div className="title_div">
@@ -22,18 +26,10 @@ const Home = () => {
                 <Stack spacing={4} direction="column">
                     <Stack spacing = {8} direction="row">
                         <HomeButton
+                            onClick={() => {
+                                navigator("/resize")
+                            }}
                             text='Resize'
-                        />
-                        <HomeButton
-                            text='TBD'
-                        />
-                        <HomeButton
-                            text='TBD'
-                        />
-                    </Stack>
-                    <Stack spacing = {8} direction="row">
-                        <HomeButton
-                            text='TBD'
                         />
                         <HomeButton
                             text='TBD'
