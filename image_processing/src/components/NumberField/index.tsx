@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Props {
     label: string
@@ -13,23 +13,25 @@ interface Props {
 function NumberField({label, placeholder, number, setNumber, min, max} : Props) {
     const [isValid, setIsValid] = useState<boolean>(true)
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setNumber(event.target.value)
-
+    useEffect(() =>{
         if(!validateNumber()) {
-            console.log("Invalid Number")
             setIsValid(false)
-            return
         }
+        else
+        {
+            setIsValid(true)
+        }
+    },[number])
 
-        setIsValid(true)
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const trimmedValue = event.target.value.trimStart().replace(/^0+/, '');
+        setNumber(trimmedValue === '' ? "0" : trimmedValue)
     }
 
     function validateNumber(): boolean {
         if(number === '') return true
 
         const value = parseInt(number)
-        console.log(value)
         return value >= min && value <= max
     }
 
