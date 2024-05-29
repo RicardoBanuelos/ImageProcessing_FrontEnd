@@ -14,7 +14,7 @@ const StyledAppBar = styled(AppBar)({
     height: "3rem",
 })
 
-const NavBar = () => {
+function NavBar() {
 
     const navigator = useNavigate()
 

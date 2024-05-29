@@ -9,7 +9,7 @@ import HomeButton from '../../components/HomeButton'
 
 import { useNavigate } from 'react-router-dom'
 
-const Home = () => {
+function Home() {
     const navigator = useNavigate()
 
     return (

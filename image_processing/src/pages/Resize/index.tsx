@@ -8,7 +8,7 @@ import UploadImageButton from '../../components/UploadImageButton'
 
 import { useState, useEffect } from 'react'
 
-const Resize = () => {
+function Resize() {
     const [uploadedImage, setUploadedImage] = useState<File>()
 
     useEffect(() => {

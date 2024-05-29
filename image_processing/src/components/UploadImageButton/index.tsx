@@ -7,9 +7,9 @@ interface Props {
     setImage: (file: File) => void
 }
 
-const UploadImageButton = ({image, setImage}: Props) => {
+function UploadImageButton({image, setImage}: Props) {
 
-    const handeImageUpload = (event: any) => {
+    function handeImageUpload(event: any) {
         image = event.target.files[0]
         if(image === null) return
 
