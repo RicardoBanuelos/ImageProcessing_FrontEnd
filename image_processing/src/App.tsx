@@ -3,6 +3,8 @@ import Resize from './pages/Resize'
 
 import NavBar from './components/NavBar'
 
+import GlobalStyle from './styles/GlobalStyles'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +14,7 @@ import {
 function App() {
   	return (
     <>
+        <GlobalStyle/>
         <Router>
           <NavBar/>
           <Routes>
