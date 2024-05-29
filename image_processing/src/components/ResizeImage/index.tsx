@@ -39,12 +39,16 @@ function ResizeImage({image} : Props) {
                     placeholder='100px'
                     number={newWidth}
                     setNumber={setNewWidth}
+                    min={1}
+                    max={20000}
                 />
                 <NumberField
                     label='Width'
                     placeholder='100px'
                     number={newHeight}
                     setNumber={setNewheight}
+                    min={1}
+                    max={20000}
                 />
                 <Button
                     variant='contained'
