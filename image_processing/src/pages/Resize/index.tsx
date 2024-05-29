@@ -5,11 +5,12 @@ import {
 } from '@mui/material'
 
 import UploadImageButton from '../../components/UploadImageButton'
+import ResizeImage from '../../components/ResizeImage'
 
 import { useState, useEffect } from 'react'
 
 function Resize() {
-    const [uploadedImage, setUploadedImage] = useState<File>()
+    const [uploadedImage, setUploadedImage] = useState<File | null>()
 
     useEffect(() => {
 
@@ -19,14 +20,16 @@ function Resize() {
         <>
             <div className="title_div">
                 <Typography variant='h2'>
-                    Resize Page
+                    Resize Your Image!
                 </Typography>
             </div>
             <div className="upload_button_div">
-                    <UploadImageButton image={uploadedImage} setImage={setUploadedImage}/>
+                    <UploadImageButton setImage={setUploadedImage}/>
             </div>
             {uploadedImage !== undefined ? 
-                (<p>Image is uploaded</p>) : null
+                (<div className="resize_div">
+                    <ResizeImage image={uploadedImage}/>
+                </div>) : null
             }
         </>
     )

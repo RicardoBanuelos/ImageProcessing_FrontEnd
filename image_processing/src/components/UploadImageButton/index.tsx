@@ -3,18 +3,17 @@ import {
 } from '@mui/material'
 
 interface Props {
-    image?: File,
     setImage: (file: File) => void
 }
 
-function UploadImageButton({image, setImage}: Props) {
+function UploadImageButton({setImage}: Props) {
 
     function handeImageUpload(event: any) {
-        image = event.target.files[0]
-        if(image === null) return
+        const newImage = event.target.files[0]
+        if(newImage === null) return
 
-        console.log(image)
-        setImage(image!)
+        console.log(newImage)
+        setImage(newImage!)
     }
 
     return (
