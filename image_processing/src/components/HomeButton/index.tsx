@@ -17,7 +17,7 @@ const StyledButton = styled(Button)({
       },
 })
 
-const HomeButton = (props: HomeButtonProps) => {
+function HomeButton(props: HomeButtonProps){
     return (
         <StyledButton onClick={props.onClick}>
             {props.text}
