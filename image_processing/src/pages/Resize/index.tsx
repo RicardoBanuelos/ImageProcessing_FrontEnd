@@ -6,14 +6,20 @@ import {
 
 import UploadImageButton from '../../components/UploadImageButton'
 import ResizeImage from '../../components/ResizeImage'
+import UploadImage from '../../api/UploadImage'
 
 import { useState, useEffect } from 'react'
 
 function Resize() {
     const [uploadedImage, setUploadedImage] = useState<File | null>()
 
-    useEffect(() => {
+    async function callUploadImage() {
+        if(uploadedImage != null)
+            console.log(await UploadImage(uploadedImage))
+    }
 
+    useEffect(() => {
+        callUploadImage()
     },[uploadedImage])
 
     return (
