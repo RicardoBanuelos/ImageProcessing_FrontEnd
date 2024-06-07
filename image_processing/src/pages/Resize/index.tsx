@@ -5,21 +5,15 @@ import {
 } from '@mui/material'
 
 import UploadImageButton from '../../components/UploadImageButton'
-import ResizeImage from '../../components/ResizeImage'
-import UploadImage from '../../api/UploadImage'
+import ResizeImageAPI from '../../components/ResizeImage'
 
 import { useState, useEffect } from 'react'
 
 function Resize() {
     const [uploadedImage, setUploadedImage] = useState<File | null>()
 
-    async function callUploadImage() {
-        if(uploadedImage != null)
-            console.log(await UploadImage(uploadedImage))
-    }
-
     useEffect(() => {
-        callUploadImage()
+        
     },[uploadedImage])
 
     return (
@@ -34,7 +28,7 @@ function Resize() {
             </div>
             {uploadedImage !== undefined ? 
                 (<div className="resize_div">
-                    <ResizeImage image={uploadedImage}/>
+                    <ResizeImageAPI image={uploadedImage}/>
                 </div>) : null
             }
         </>

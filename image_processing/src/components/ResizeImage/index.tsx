@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
 
 import { Box, Button, CardMedia } from '@mui/material'
+
 import NumberField from '../NumberField'
+import ResizeImageAPI from '../../api/ResizeImage'
+import downloadBase64Image from '../../features/downloadImage/DownloadBase64Image'
+import './index.css'
 
 interface Props {
     image: File | null
 }
 
 function ResizeImage({image} : Props) {
-
     const [imageUrl, setImageUrl] = useState<string | null>("0")
     const [newWidth, setNewWidth] = useState<string>("100")
     const [newHeight, setNewheight] = useState<string>("100")
@@ -20,15 +23,26 @@ function ResizeImage({image} : Props) {
         return () => URL.revokeObjectURL(objectUrl)
     }, [image])
 
+    function validateDimensions() {
+        const width = parseInt(newWidth)
+        const height = parseInt(newHeight)
+
+        return width >= 1 && width <= 20000 && height >= 1 && height <= 20000
+    }
+
+    async function callResizeImage() {
+        if(!validateDimensions()) return
+
+        const response = await ResizeImageAPI(image!, newWidth, newHeight)
+        downloadBase64Image(response.data.image, image!.name)
+    }
+
     return ( 
         <>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <CardMedia
-                    component='img'
-                    image={imageUrl!}
-                    alt='uploaded image'
-                    height='600px'
-                    sx={{ maxWidth: '80%', width: '100%', objectFit: 'contain' }}
+                <img
+                    className='responsive_image'
+                    src={imageUrl!}
                 />
             </Box>
             <Box
@@ -52,6 +66,7 @@ function ResizeImage({image} : Props) {
                 />
                 <Button
                     variant='contained'
+                    onClick={callResizeImage}
                 >
                     Resize!
                 </Button>
