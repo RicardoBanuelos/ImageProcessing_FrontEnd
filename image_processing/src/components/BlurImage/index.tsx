@@ -1,21 +1,20 @@
 import './index.css'
 
 import { useState, useEffect } from 'react'
-
 import { Box, Button } from '@mui/material'
-
 import NumberField from '../NumberField'
-import ResizeImageAPI from '../../api/ResizeImage'
+
+import BlurImageAPI from '../../api/BlurImage'
 import downloadBase64Image from '../../features/DownloadImage/DownloadBase64Image'
 
 interface Props {
     image: File | null
 }
 
-function ResizeImage({image} : Props) {
+function BlurImage({image} : Props) {
     const [imageUrl, setImageUrl] = useState<string | null>("0")
-    const [newWidth, setNewWidth] = useState<string>("100")
-    const [newHeight, setNewheight] = useState<string>("100")
+    const [newWidth, setNewWidth] = useState<string>("1")
+    const [newHeight, setNewheight] = useState<string>("1")
 
     useEffect(() => {
         const objectUrl = URL.createObjectURL(image!)
@@ -24,17 +23,16 @@ function ResizeImage({image} : Props) {
         return () => URL.revokeObjectURL(objectUrl)
     }, [image])
 
-    function validateDimensions() {
+    function validateInput() {
         const width = parseInt(newWidth)
         const height = parseInt(newHeight)
 
-        return width >= 1 && width <= 20000 && height >= 1 && height <= 20000
+        return width >= 1 && width <= 1000 && height >= 1 && height <= 1000;
     }
 
-    async function callResizeImage() {
-        if(!validateDimensions()) return
-
-        const response = await ResizeImageAPI(image!, newWidth, newHeight)
+    async function callBlurImage() {
+        if(!validateInput()) return
+        const response = await BlurImageAPI(image!, newWidth, newHeight)
         downloadBase64Image(response.data.image, image!.name)
     }
 
@@ -50,31 +48,30 @@ function ResizeImage({image} : Props) {
                 component="form" 
                 sx={{ marginTop: '1vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <NumberField
-                    label='Width'
-                    placeholder='100px'
+                    label='Kernel Width'
+                    placeholder='1'
                     number={newWidth}
                     setNumber={setNewWidth}
                     min={1}
-                    max={20000}
+                    max={1000}
                 />
                 <NumberField
-                    label='Height'
+                    label='Kernel Height'
                     placeholder='100px'
                     number={newHeight}
                     setNumber={setNewheight}
                     min={1}
-                    max={20000}
+                    max={1000}
                 />
                 <Button
                     variant='contained'
-                    onClick={callResizeImage}
+                    onClick={callBlurImage}
                 >
-                    Resize!
+                    Blur!
                 </Button>
             </Box>
-        </>
-    )
-    
+        </> 
+    );
 }
 
-export default ResizeImage;
+export default BlurImage;

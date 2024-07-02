@@ -5,34 +5,34 @@ import {
 } from '@mui/material'
 
 import UploadImageButton from '../../components/UploadImageButton'
-import ResizeImage from '../../components/ResizeImage'
+import BlurImage from '../../components/BlurImage'
 
 import { useState, useEffect } from 'react'
 
-function Resize() {
+function Blur() {
     const [uploadedImage, setUploadedImage] = useState<File | null>()
 
     useEffect(() => {
         
     },[uploadedImage])
 
-    return (
+    return ( 
         <>
             <div className="title_div">
                 <Typography variant='h2'>
-                    Resize Your Image!
+                    Blur Your Image!
                 </Typography>
             </div>
             <div className="upload_button_div">
                 <UploadImageButton setImage={setUploadedImage}/>
             </div>
             {uploadedImage !== undefined ? 
-                (<div className="resize_div">
-                    <ResizeImage image={uploadedImage}/>
+                (<div className="blur_div">
+                    <BlurImage image={uploadedImage}/>
                 </div>) : null
             }
-        </>
-    )
+        </> 
+    );
 }
 
-export default Resize
+export default Blur;

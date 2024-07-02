@@ -1,5 +1,6 @@
 import Home from './pages/Home'
 import Resize from './pages/Resize'
+import Blur from './pages/Blur'
 
 import NavBar from './components/NavBar'
 
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/resize" element={<Resize/>}/>
+            <Route path="/blur" element={<Blur/>}/>
           </Routes>
         </Router>
     </>
