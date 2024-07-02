@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { Box, Button, CardMedia } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 import NumberField from '../NumberField'
 import ResizeImageAPI from '../../api/ResizeImage'

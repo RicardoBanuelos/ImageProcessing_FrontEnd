@@ -6,7 +6,7 @@ async function ResizeImageAPI(image: File, width: string, height: string) {
 
     try {
         const unique_name = await UploadImage(image)
-        const response = await axios.get("http://127.0.0.1:8000/resize_image", {
+        const response = await axios.get("http://127.0.0.1:8000/resize", {
             params: {
                 width: width,
                 height: height,

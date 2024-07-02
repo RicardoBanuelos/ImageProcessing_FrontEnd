@@ -32,7 +32,10 @@ function Home() {
                             text='Resize'
                         />
                         <HomeButton
-                            text='TBD'
+                            onClick={() => {
+                                navigator("/blur")
+                            }}
+                            text='Blur'
                         />
                         <HomeButton
                             text='TBD'

@@ -6,7 +6,7 @@ async function UploadImage(image: File) {
     formData.append("file", image)
     try {
         const response = await axios.post(
-            "http://127.0.0.1:8000/upload_image",
+            "http://127.0.0.1:8000/upload",
             formData,
             {
                 headers: {

@@ -5,7 +5,7 @@ import {
 } from '@mui/material'
 
 import UploadImageButton from '../../components/UploadImageButton'
-import ResizeImageAPI from '../../components/ResizeImage'
+import ResizeImage from '../../components/ResizeImage'
 
 import { useState, useEffect } from 'react'
 
@@ -28,7 +28,7 @@ function Resize() {
             </div>
             {uploadedImage !== undefined ? 
                 (<div className="resize_div">
-                    <ResizeImageAPI image={uploadedImage}/>
+                    <ResizeImage image={uploadedImage}/>
                 </div>) : null
             }
         </>
