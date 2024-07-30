@@ -38,7 +38,10 @@ function Home() {
                             text='Blur'
                         />
                         <HomeButton
-                            text='TBD'
+                            onClick={() => {
+                                navigator("/grayscale")
+                            }}
+                            text='Grayscale'
                         />
                     </Stack>
                 </Stack>

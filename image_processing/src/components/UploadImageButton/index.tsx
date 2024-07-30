@@ -7,12 +7,15 @@ interface Props {
 }
 
 function UploadImageButton({setImage}: Props) {
+    const MAX_FILE_SIZE_MB = 5; // Maximum file size in MB
 
     function handeImageUpload(event: any) {
         const newImage = event.target.files[0]
-        if(newImage === null) return
+        if(newImage === null || newImage.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+            alert('File size exceeds the maximum limit (5MB)');
+            return
+        }
 
-        console.log(newImage)
         setImage(newImage!)
     }
 
