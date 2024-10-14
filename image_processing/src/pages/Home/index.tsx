@@ -44,6 +44,14 @@ function Home() {
                             text='Grayscale'
                         />
                     </Stack>
+                    <Stack spacing = {8} direction="row">
+                        <HomeButton
+                            onClick={() => {
+                                navigator("/extract")
+                            }}
+                            text='Extract Text'
+                        />
+                    </Stack>
                 </Stack>
             </div>
         </>

@@ -2,6 +2,7 @@ import Home from './pages/Home'
 import Resize from './pages/Resize'
 import Blur from './pages/Blur'
 import Grayscale from './pages/Grayscale'
+import ExtractText from './pages/ExtractText'
 
 import NavBar from './components/NavBar'
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/resize" element={<Resize/>}/>
             <Route path="/blur" element={<Blur/>}/>
             <Route path="/grayscale" element={<Grayscale/>}/>
+            <Route path="/extract" element={<ExtractText/>}/>
           </Routes>
         </Router>
     </>
